@@ -1,0 +1,5 @@
+#!/bin/bash
+
+sh begin/configure_pgsql.sh
+sh begin/configure_rbenv.sh
+sh begin/configure_ruby.sh
