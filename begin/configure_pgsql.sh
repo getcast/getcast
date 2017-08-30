@@ -17,17 +17,8 @@ sudo apt install \
   postgresql-server-dev-9.6 \
   libpq-dev
 
-echo 'perform following commands:'
-echo
-echo '## create postgres user'
-echo 'sudo su - postgres'
-echo 'createuser --pwprompt [username]'
-echo
-echo '## modify env files'
-echo '#.env_development'
-echo 'DATABASE_URL="postgresql://[username]:[password]@localhost/getcast_development"'
-echo '#.env_test'
-echo 'DATABASE_URL="postgresql://[username]:[password]@localhost/getcast_test"'
+## create postgres user
+sudo -u postgres bash -c "pgsql -c \"CREATE USER getcast WITH PASSWORD 'marvelouspandaband';\""
 
 # start postgresql
 service postgresql start
