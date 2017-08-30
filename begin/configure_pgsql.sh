@@ -11,14 +11,14 @@ sudo apt update
 
 # install postgres
 sudo apt install \
-  postgresql-9.6 \
-  postgresql-client-9.6 \
-  postgresql-contrib-9.6 \
-  postgresql-server-dev-9.6 \
+  postgresql \
+  postgresql-client \
+  postgresql-contrib \
+  postgresql-server-dev \
   libpq-dev
 
 ## create postgres user
-sudo -u postgres bash -c "pgsql -c \"CREATE USER getcast WITH PASSWORD 'marvelouspandaband';\""
+sudo sh scripts/createuser.sh
 
 # start postgresql
 service postgresql start
@@ -27,5 +27,5 @@ service postgresql start
 if netstat -an 5432 | grep &>/dev/null 'postgres'; then
 	echo '[OK] postgres running on port 5432!'
 else
-	echo '[ERR] could not find postgres at port 5432! check your /etc/postgres/9.6/main/postgres.conf'
+	echo '[ERR] could not find postgres at port 5432! check your /etc/postgres/[version]/main/postgres.conf'
 fi
