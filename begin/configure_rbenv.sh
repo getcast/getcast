@@ -18,20 +18,8 @@ git clone git://github.com/rbenv/rbenv.git "$RBENV_ROOT"
 chgrp -R "$GROUP" "$RBENV_ROOT"
 chmod -R g+rwxXs "$RBENV_ROOT"
 
-# create script file if it doesn't exist
-if [ ! -f "scripts/$RBENV_INIT" ]; then
-	cat >"scripts/$RBENV_INIT" <<EOL
-if id -Gn | grep &>/dev/null '\\b$GROUPS\\b'; then
-	export RBENV_ROOT=$RBENV_ROOT
-	export PATH="\$RBENV_ROOT/bin:\$PATH"
-	eval "\$(rbenv init -)"
-fi
-EOL
-fi
-
-# copy it to /etc/profile.d to set for all users
-cp "scripts/$RBENV_INIT" "/etc/profile.d/$RBENV_INIT"
-
+# set environment variables for all users
+sh rbenv/rbenv_all.sh "$RBENV_ROOT"
 
 ## install and configure ruby-build plugin ##
 

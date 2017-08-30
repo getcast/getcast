@@ -1,5 +1,10 @@
 #!/bin/bash
 
-sh begin/configure_pgsql.sh
-sh begin/configure_rbenv.sh
-sh begin/configure_ruby.sh
+cd begin
+
+sh configure_nginx.sh
+sh configure_pgsql.sh
+sh configure_rbenv.sh
+sh configure_ruby.sh
+
+cd ..
