@@ -5,7 +5,7 @@ SETTINGS_FILE=$1
 STATIC_ROOT=$2
 
 # create nginx settings if not exists
-if [! -f /etc/nginx/sites_available/$1 ]; then
+if [ ! -f /etc/nginx/sites_available/$1 ]; then
 cat >"/etc/nginx/sites_available/$1" <<EOL
 upstream backend {
 	server localhost:3000;
