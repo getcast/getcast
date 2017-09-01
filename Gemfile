@@ -22,7 +22,7 @@ group :test do
 end
 
 group :production do
-  # gem 'puma'
+  gem 'puma'
 end
 
 ruby '2.4.1'
