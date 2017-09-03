@@ -4,7 +4,7 @@
 RUBY_VERSION=2.4.1
 
 # install ruby
-rbenv install $RUBY_VERSION
+rbenv install --verbose $RUBY_VERSION
 rbenv global $RUBY_VERSION
 
 # install hanami
