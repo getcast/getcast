@@ -7,10 +7,10 @@ echo "deb http://apt.postgresql.org/pub/repos/apt/ $(lsb_release -c -s)-pgdg mai
 wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
 
 # update package lists
-sudo apt update
+apt update
 
 # install postgres
-sudo apt install \
+apt install \
   postgresql \
   postgresql-client \
   postgresql-contrib \
@@ -18,7 +18,7 @@ sudo apt install \
   libpq-dev
 
 ## create postgres user
-sudo sh pgsql/pgsql_createuser.sh
+sh pgsql/pgsql_createuser.sh
 
 # start postgresql
 service postgresql start

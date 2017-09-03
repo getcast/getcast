@@ -2,9 +2,9 @@
 
 cd begin
 
-sh configure_nginx.sh
-sh configure_pgsql.sh
-sh configure_rbenv.sh
-sh configure_ruby.sh
+sudo sh configure_nginx.sh
+sudo sh configure_pgsql.sh
+sudo sh configure_rbenv.sh
+sudo sh configure_ruby.sh
 
 cd ..
