@@ -34,12 +34,13 @@ body {
 	padding-bottom: 0.5rem;
 
 	background-color: #303040;
+
+	white-space: pre-wrap;
+	word-wrap: break-word;
 }
 
 .podcast h2 {
 	color: #9090aa;
-	white-space: pre-wrap;
-	word-wrap: break-word;
 }
 
 .podcast p {
@@ -47,8 +48,6 @@ body {
 }
 
 .podcast a {
-	white-space: pre-wrap;
-	word-wrap: break-word;
 	color: #dcac55;
 	text-decoration: none;
 }
