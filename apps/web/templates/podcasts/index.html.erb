@@ -1,0 +1,15 @@
+<h1 class="big-title">All podcasts</h1>
+
+<% if podcasts.any? %>
+	<div id="podcasts">
+		<% podcasts.each do |podcast| %>
+			<div class="podcast">
+				<h2><%= podcast.title %></h2>
+				<p><a href="<%= podcast.url %>"><%= podcast.url %></a></p>
+				<p><%= podcast.description %></p>
+			</div>
+		<% end %>
+	</div>
+<% else %>
+	<p class="placeholder">There are no podcasts yet.</p>
+<% end %>

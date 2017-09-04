@@ -1,10 +1,19 @@
-#!/bin/bash
+#!/bin/bashs
+
+if [ "$1" == '--user' ]; then
+	INSTALL_MODE=user
+else
+	INSTALL_MODE=system
+fi
 
 cd begin
 
-sudo sh configure_nginx.sh
-sudo sh configure_pgsql.sh
-sudo sh configure_rbenv.sh
-sudo sh configure_ruby.sh
+if [ "$INSTALL_MODE" == "system"]; then
+	sudo ./configure_nginx.sh $*
+fi
+
+sudo ./configure_pgsql.sh $*
+sudo ./configure_rbenv.sh $*
+sudo ./configure_ruby.sh $*
 
 cd ..

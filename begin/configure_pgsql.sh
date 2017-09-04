@@ -18,7 +18,7 @@ apt install \
   libpq-dev
 
 ## create postgres user
-sh pgsql/pgsql_createuser.sh
+pgsql/pgsql_createuser.sh
 
 # start postgresql
 service postgresql start

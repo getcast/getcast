@@ -1,0 +1,54 @@
+*, *::before, *::after {
+	box-sizing: border-box;
+}
+
+body {
+	background-color: #181824;
+}
+
+#main-container {
+	max-width: 75vw;
+	margin: 4rem auto;
+}
+
+.big-title {
+	font-size: 30px;
+	text-align: center;
+	margin-bottom: 2rem;
+	color: #d0d0e8;
+}
+
+#podcasts {
+	column-count: 3;
+	column-fill: balance;
+	column-gap: 1rem;
+}
+
+.podcast {
+	break-inside: avoid-column;
+	margin-bottom: 1rem;
+
+	padding-left: 2rem;
+	padding-right: 2rem;
+	padding-top: 0.5rem;
+	padding-bottom: 0.5rem;
+
+	background-color: #303040;
+}
+
+.podcast h2 {
+	color: #9090aa;
+	white-space: pre-wrap;
+	word-wrap: break-word;
+}
+
+.podcast p {
+	color: #787894;
+}
+
+.podcast a {
+	white-space: pre-wrap;
+	word-wrap: break-word;
+	color: #dcac55;
+	text-decoration: none;
+}

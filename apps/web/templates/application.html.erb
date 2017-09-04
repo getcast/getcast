@@ -11,8 +11,8 @@
         <%= favicon %>
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-        <!--<link rel="stylesheet" href="css/main.css"> -->
+        <%= stylesheet 'main' %>
+        <!-- script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script-->
     </head>
     <body>
         <!--[if lt IE 8]>
@@ -20,7 +20,9 @@
         <![endif]-->
 
         <!-- Add your site or application content here -->
-        <%= yield %>
+        <div id="main-container">
+            <%= yield %>
+        </div>
 
         <!-- script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.4.min.js"><\/script>')</script -->

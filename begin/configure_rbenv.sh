@@ -1,25 +1,24 @@
 #!/bin/bash
 
 ## install and configure rbenv ##
+if [ "$1" == '--user' ]; then
+	INSTALL_MODE=user
+else
+	INSTALL_MODE=system
+fi
 
 # rbenv root directory
-RBENV_ROOT=/usr/local/rbenv
-
-# script for loading rbenv into PATh
-RBENV_INIT=rbenv.sh
+if [ "$INSTALL_MODE" == "user" ]; then
+	RBENV_ROOT=$HOME/.rbenv
+else	
+	RBENV_ROOT=/usr/local/rbenv
+fi
 
 # rbenv group name
 GROUP=staff
 
 # clone rbenv from repository
 git clone git://github.com/rbenv/rbenv.git "$RBENV_ROOT"
-
-# give permissions to group
-chgrp -R "$GROUP" "$RBENV_ROOT"
-chmod -R g+rwxXs "$RBENV_ROOT"
-
-# set environment variables for all users
-sh rbenv/rbenv_all.sh "$RBENV_ROOT"
 
 ## install and configure ruby-build plugin ##
 
@@ -29,9 +28,13 @@ mkdir "$RBENV_ROOT/plugins"
 # clone ruby-build from repository
 git clone git://github.com/rbenv/ruby-build.git "$RBENV_ROOT/plugins/ruby-build"
 
-# give permissions to group
-chgrp -R "$GROUP" "$RBENV_ROOT/plugins/ruby-build"
-chgrp -R g+rwxs "$RBENV_ROOT/plugins/ruby-build"
+## set up permissions ##
 
-# update changes to current shell
-source /etc/profile
+# give permissions to group
+if [ "$INSTALL_MODE" == "system"]; then
+	chgrp -R "$GROUP" "$RBENV_ROOT"
+	chmod -R g+rwxXs "$RBENV_ROOT"
+fi
+
+# set environment variables and update changes to current shell
+rbenv/rbenv_envvar.sh "$RBENV_ROOT" "$GROUP" $*
