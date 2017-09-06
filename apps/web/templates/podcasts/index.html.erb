@@ -2,9 +2,9 @@
 
 <% if podcasts.any? %>
 	<div id="podcasts">
-		<% podcasts.each do |podcast| %>
+		<% podcasts.take(1000).each do |podcast| %>
 			<div class="podcast">
-				<h2><a href = "<%= Web.routes.url(:show, id: podcast.id) %>"><%= podcast.title %></a></h2>
+				<h2><a href = "<%= Web.routes.path(:show, id: podcast.id) %>"><%= podcast.title %></a></h2>
 				<p><a href="<%= podcast.url %>"><%= podcast.url %></a></p>
 				<p><%= podcast.description %></p>
 			</div>

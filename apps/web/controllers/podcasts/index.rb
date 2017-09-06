@@ -5,7 +5,7 @@ module Web::Controllers::Podcasts
     expose :podcasts
 
     def call(params)
-    	@podcasts = PodcastRepository.new.all
+    	@podcasts = PodcastRepository.new
     end
   end
 end
