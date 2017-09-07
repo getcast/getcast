@@ -2,16 +2,14 @@
 
 <% if podcast %>
 	<div id="podcasts">
-		<div class="podcast">
 			<h2><%= podcast.title %></a></h2>
 			<p><a href="<%= podcast.url %>"><%= podcast.url %></a></p>
 			<p><%= podcast.description %></p>
 			<ol reversed>
-			<% episodes.each do |episode| %>
-			<li><%= episode.title %></li>
-			<% end %>
+				<% episodes.each do |episode| %>
+					<li><a href="<%= episode.enclosure.url %>"><%= episode.title %></li>
+				<% end %>
 			</ol>
-		</div>
 	</div>
 <% else %>
 	<p class="placeholder">Invalid podcast ID.</p>
