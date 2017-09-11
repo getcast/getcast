@@ -36,21 +36,21 @@ body {
 	background-color: #303040;
 }
 
-.podcast h2 {	
+.podcast h2, #podcast h2 {	
 	white-space: pre-wrap;
 	word-wrap: break-word;
 
 	color: #9090aa;
 }
 
-.podcast p {	
+.podcast p, #podcast p {	
 	white-space: pre-wrap;
 	word-wrap: break-word;
 
 	color: #787894;
 }
 
-.podcast a {	
+.podcast a, #podcast a {	
 	white-space: pre-wrap;
 	word-wrap: break-word;
 

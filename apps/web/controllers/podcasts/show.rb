@@ -16,7 +16,7 @@ module Web::Controllers::Podcasts
     
     private 
     def list_episodes
-      url = PodcastRepository.new.find(params[:id]).url
+      url = @podcast.url
       open(url) do |rss|
         feed = RSS::Parser.parse(rss)
         feed.items
