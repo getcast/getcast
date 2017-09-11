@@ -31,10 +31,10 @@ git clone git://github.com/rbenv/ruby-build.git "$RBENV_ROOT/plugins/ruby-build"
 ## set up permissions ##
 
 # give permissions to group
-if [ "$INSTALL_MODE" == "system"]; then
+if [ "$INSTALL_MODE" == "system" ]; then
 	chgrp -R "$GROUP" "$RBENV_ROOT"
 	chmod -R g+rwxXs "$RBENV_ROOT"
 fi
 
 # set environment variables and update changes to current shell
-rbenv/rbenv_envvar.sh "$RBENV_ROOT" "$GROUP" $*
+rbenv/rbenv_envvars.sh "$RBENV_ROOT" "$GROUP" $*

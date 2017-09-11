@@ -2,8 +2,8 @@
 require 'rss'
 require 'open-uri'
 
-module Web::Controllers::Show
-  class Index
+module Web::Controllers::Podcasts
+  class Show
     include Web::Action
 
     expose :podcast
