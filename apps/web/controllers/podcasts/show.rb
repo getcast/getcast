@@ -1,7 +1,3 @@
-#require 'feedjira'
-require 'rss'
-require 'open-uri'
-
 module Web::Controllers::Podcasts
   class Show
     include Web::Action
@@ -17,10 +13,21 @@ module Web::Controllers::Podcasts
     private 
     def list_episodes
       url = @podcast.url
-      open(url) do |rss|
-        feed = RSS::Parser.parse(rss)
-        feed.items
-      end
+      begin
+        xml = Faraday.get(url).body
+        feed = Feedjira::Feed.parse_with(Feedjira::Parser::ITunesRSS, xml)
+        feed.entries.each do |episode|
+          puts episode.title
+          puts episode.summary
+          puts episode.enclosure_url
+        end
+      rescue Feedjira::NoParserAvailable, Feedjira::FetchFailure, Faraday::Error, Zlib::DataError
+        puts "error fetching and parsing url"
+      rescue NoMethodError
+        puts "missing attributes"
+      else
+        feed.entries.each
+      end        
     end
   end
 end

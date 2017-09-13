@@ -6,8 +6,10 @@
 			<p><a href="<%= podcast.url %>"><%= podcast.url %></a></p>
 			<p><%= podcast.description %></p>
 			<ol reversed>
-				<% episodes.each do |episode| %>
-					<li><a href="<%= episode.enclosure.url %>"><%= episode.title %></li>
+				<% if episodes %>
+					<% episodes.each do |episode| %>
+						<li><a href="<%= episode.enclosure_url %>"><%= episode.title %></li>
+					<% end %>
 				<% end %>
 			</ol>
 	</div>
