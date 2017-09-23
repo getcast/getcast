@@ -208,7 +208,7 @@ module Web
       #
       # The default value allows images, scripts, AJAX, fonts and CSS from the
       # same origin, and does not allow any other resources to load (eg object,
-      # frame, media, etc).
+      # frame, media, etc).llow audio and video playback redirection group policy setting
       #
       # Inline JavaScript is NOT allowed. To enable it, please use:
       # "script-src 'unsafe-inline'".
@@ -247,7 +247,7 @@ module Web
         plugin-types application/pdf;
         child-src 'self';
         frame-src 'self';
-        media-src 'self'
+	media-src *;
       }
 
       ##
