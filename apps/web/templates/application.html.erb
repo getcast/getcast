@@ -11,7 +11,7 @@
         <%= favicon %>
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css">
-      	<%= stylesheet 'main' %>
+      	<%= stylesheet 'stryle', 'main' %>
         <script src="https://use.fontawesome.com/8e9e62f655.js"></script>
         <!-- script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script-->
     </head>
@@ -23,8 +23,21 @@
         <!-- Add your site or application content here -->
         <div id="main-container">
             <%= yield %>
+	<div id="playerbar" class="playerbar">
+		<audio id="podcastAudio" preload="true">
+			<source src="" type="audio/mpeg">
+		</audio>
+		<div id="audioplayer">
+			<img src="">
+			<button id="playButton" class="play"></button>
+			<div id="timeline">
+				<div id="marker" class="hexagon"></div>
+			</div>
+			<div id="timestamp"></div>
+		</div>
+	</div>
         </div>
-
+	<%= javascript 'addPlayer'%>	
         <!-- script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.4.min.js"><\/script>')</script -->
 
@@ -34,5 +47,6 @@
             ga('create','UA-XXXXX-Y','auto');ga('send','pageview')
         </script>
         <script src="https://www.google-analytics.com/analytics.js" async defer></script -->
-    </body>
+ 
+   </body>
 </html>
