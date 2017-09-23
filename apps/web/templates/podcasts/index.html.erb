@@ -1,5 +1,12 @@
 <h1 class="big-title">All podcasts</h1>
 
+<form method="get">
+	<div class="container-4">
+		<input type="search" id="search" name="search" placeholder="Buscar..." autocomplete="on" autosave>
+		<button class="icon"><span class="fa fa-search"></span></button>
+	</div>
+</form>
+
 <% if podcasts.any? %>
 	<div id="podcasts">
 		<% podcasts.take(1000).each do |podcast| %>
