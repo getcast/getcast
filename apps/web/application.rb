@@ -238,11 +238,11 @@ module Web
         frame-ancestors 'self';
         base-uri 'self';
         default-src 'none';
-        script-src 'self' http://cdnjs.cloudflare.com http://use.fontawesome.com http://www.google-analytics.com http://code.jquery.com;
+        script-src 'self' https://cdnjs.cloudflare.com https://use.fontawesome.com http://code.jquery.com;
         connect-src 'self';
         img-src 'self' https: data: http:;
         style-src 'self' 'unsafe-inline' https:;
-        font-src 'self' http://use.fontawesome.com;
+        font-src 'self' https://use.fontawesome.com/;
         object-src 'none';
         plugin-types application/pdf;
         child-src 'self';

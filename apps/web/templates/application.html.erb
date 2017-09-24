@@ -10,9 +10,9 @@
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
         <%= favicon %>
 
-        <%= stylesheet "http://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" %>
-        <%= javascript "http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" %>
-        <%= javascript "http://use.fontawesome.com/8e9e62f655.js" %>
+        <%= stylesheet "https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" %>
+        <%= javascript "https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" %>
+        <%= javascript "fontawesome.min" %>
         <%= stylesheet "stryle", "main" %>
     </head>
     <body>
@@ -24,27 +24,23 @@
         <div id="main-container">
             <%= yield %>
         </div>
-            <div id="playerbar" class="playerbar">
-            	<audio id="podcastAudio" preload="true">
-            		<source src="" type="audio/mpeg">
-            	</audio>
-            	<div id="audioplayer">
-            		<img src="">
-            		<button id="playButton" class="play"></button>
-            		<div id="timeline">
-            			<div id="marker" class="hexagon"></div>
-            		</div>
-            		<div id="timestamp"></div>
-            	</div>
+        <div id="playerbar" class="playerbar">
+            <audio id="podcastAudio" preload="true">
+            <source src="" type="audio/mpeg">
+            </audio>
+            <div id="audioplayer">
+                <img src="">
+                <button id="playButton" class="play"></button>
+                <div id="timeline">
+                    <div id="marker" class="hexagon"></div>
+                </div>
+                <div id="timestamp"></div>
             </div>
+        </div>
 
         <%= javascript "addPlayer" %>
         
         <%= javascript "http://code.jquery.com/jquery-1.12.4.min.js" %>
-        <%= javascript "jquery.js" %>
-
-        <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
-        <%= javascript "analytics.js" %>
-        <%= javascript "http://www.google-analytics.com/analytics.js", async: true, defer: true %> 
+        <%= javascript "start_jquery" %>
    </body>
 </html>
