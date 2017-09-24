@@ -10,39 +10,7 @@ var timeline = document.getElementById('timeline'); // timeline
 var timestamp = document.getElementById('timestamp') //time stamp (Duration )
 // timeline width adjusted for marker
 var timelineWidth = timeline.offsetWidth - marker.offsetWidth;
-function activatePlayer()
-		{	
-			var playerbar = document.getElementById("playerbar");
-			var state = getComputedStyle(playerbar);
-
-			if(state.opacity == 0 && isPlaying == false){
-				playerbar.style.setProperty("opacity", "1");
-				isOpen = true;
-			}		
-			
-			var audioTag = document.getElementById("podcastAudio");
-			while (audioTag.firstChild) {
-   				audioTag.removeChild(audioTag.firstChild);
-			}
-			var source = document.createElement("source");
-			var url = this.getAttribute("data-audio");
-			source.setAttribute('src',url);
-			source.type = "audio/mpeg";
-			audioTag.appendChild(source);
-
-			var audioplayer = document.getElementById("audioplayer");
-			var imgTag = audioplayer.getElementsByTagName("img");
-			var url2 = this.getAttribute("data-img");
-			imgTag[0].setAttribute('src', url2 );
-
-			podcast.load();
-			// play button event listenter
-			playButton.addEventListener("click", play);
-
-			// timeupdate event listener
-			podcast.addEventListener("timeupdate", timeUpdate, false);
-
-			// makes timeline clickable
+// makes timeline clickable
 			timeline.addEventListener("click", function(event) {
 			    movemarker(event);
 			    podcast.currentTime = duration * clickPercent(event);
@@ -112,18 +80,10 @@ function activatePlayer()
 			function play() {
 			    // start podcast
 			    if (podcast.paused) {
-			        podcast.play();
-			        isPlaying = true;
-			        // remove play, add pause
-			        playButton.className = "";
-			        playButton.className = "pause";
+				changeState("play");			    
 			    } else { // pause podcast
-			        podcast.pause();
-			        // remove pause, add play
-			        isPlaying = false;
-			        playButton.className = "";
-			        playButton.className = "play";
-			    }
+				changeState("pause");
+       		            }
 			}
 
 			// Gets audio file duration
@@ -138,7 +98,61 @@ function activatePlayer()
 			    return el.getBoundingClientRect().left;
 			}
 
+function changeState(state)
+{
+	if(state == "play")
+	{
+	    podcast.play();
+            isPlaying = true;
+            // remove play, add pause
+	    playButton.className = "";
+	    playButton.className = "pause";
+
+	}else if(state == "pause")
+	{
+            podcast.pause();
+        // remove pause, add play
+	    isPlaying = false;
+	    playButton.className = "";
+	    playButton.className = "play";
+
+	}
+}
+
+function activatePlayer()
+		{	
+			var playerbar = document.getElementById("playerbar");
+			var state = getComputedStyle(playerbar);
+
+			if(state.opacity == 0 && isPlaying == false){
+				playerbar.style.setProperty("opacity", "1");
+				isOpen = true;
+			}		
 			
+			var audioTag = document.getElementById("podcastAudio");
+			while (audioTag.firstChild) {
+   				audioTag.removeChild(audioTag.firstChild);
+			}
+			var source = document.createElement("source");
+			var url = this.getAttribute("data-audio");
+			source.setAttribute('src',url);
+			source.type = "audio/mpeg";
+			audioTag.appendChild(source);
+
+			var audioplayer = document.getElementById("audioplayer");
+			var imgTag = audioplayer.getElementsByTagName("img");
+			var url2 = this.getAttribute("data-img");
+			imgTag[0].setAttribute('src', url2 );
+
+			podcast.load();
+			changeState("play");
+			// play button event listenter
+			playButton.addEventListener("click", play);
+
+			// timeupdate event listener
+			podcast.addEventListener("timeupdate", timeUpdate, false);
+
+						
 
 			
 			

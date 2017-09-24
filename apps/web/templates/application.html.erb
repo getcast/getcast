@@ -23,6 +23,7 @@
         <!-- Add your site or application content here -->
         <div id="main-container">
             <%= yield %>
+        </div>
             <div id="playerbar" class="playerbar">
             	<audio id="podcastAudio" preload="true">
             		<source src="" type="audio/mpeg">
@@ -36,7 +37,7 @@
             		<div id="timestamp"></div>
             	</div>
             </div>
-        </div>
+
         <%= javascript "addPlayer" %>
         
         <%= javascript "http://code.jquery.com/jquery-1.12.4.min.js" %>
