@@ -4,11 +4,11 @@ module Web::Controllers::Podcasts
 
     expose :podcast
     expose :episodes
-    expose :image
+    expose :image_url
     def call(params)	
     	@podcast = PodcastRepository.new.find(params[:id])
     	@episodes
-	@image
+	@image_url
 	start_val
     end
     
@@ -22,7 +22,8 @@ module Web::Controllers::Podcasts
         puts "error fetching and parsing url"
       else
         @episodes = feed.entries.each
-	@image = feed.image ? feed.image.url : ""
+	@image_url = feed.image ? feed.image.url : ""
+        puts @image_url.class
       end        
     end
   end
