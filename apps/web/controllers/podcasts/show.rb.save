@@ -18,16 +18,15 @@ module Web::Controllers::Podcasts
       begin
         xml = Faraday.get(url).body
         feed = Feedjira::Feed.parse_with(Feedjira::Parser::ITunesRSS, xml)
-	#feed = Feedjira::Feed.fetch_and_parse(url)
-	#Feedjira::Feed.add_common_feed_element 'image'
-	#puts feed.image.url
+	Feedjira::Feed.add_common_feed_element 'image'
+	puts feed.image.url
       rescue Feedjira::NoParserAvailable, Feedjira::FetchFailure, Faraday::Error, Zlib::DataError
         puts "error fetching and parsing url"
       rescue NoMethodError
         puts "missing attributes"
       else
-        @episodes = feed.entries.each
-	#@image = feed.image.url
+        @episodes = feed.ent:ries.each
+	@image = feed.image.url
       end        
     end
   end
