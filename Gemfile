@@ -7,6 +7,8 @@ gem 'pg'
 
 gem 'feedjira'
 
+gem 'bcrypt'
+
 group :development do
   # Code reloading
   # See: http://hanamirb.org/guides/projects/code-reloading
