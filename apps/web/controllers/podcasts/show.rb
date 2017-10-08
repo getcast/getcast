@@ -26,22 +26,11 @@ module Web::Controllers::Podcasts
       id = @podcast.id
       url = @podcast.url
       begin
-        if not @podcast.cache
-          xml = Feedjira::Feed.connection(url).get.body
-          @podcast = @repository.update_cache(id, xml)
-        else
-          headers = {user_agent: Feedjira.user_agent, 
-            if_modified_since: @podcast.last_updated.httpdate}
-          request_options = {timeout: Feedjira.request_timeout}
-          xml = connection(url, headers, request_options).get.body
-          if not xml.empty?
-            @podcast = @repository.update_cache(id, xml)
-          end
-        end
-        feed = Feedjira::Feed.parse_with(Feedjira::Parser::ITunesRSS, @podcast.cache)
+        feed = @repository.get_feed(id)
       rescue Feedjira::FetchFailure, Faraday::Error, Zlib::DataError
         puts "Error fetching and parsing url #{url}"
       else
+        @podcast = @repository.find(id)
         @episodes = feed.entries.each
         @image_url = feed.image ? feed.image.url : ""
       end        
