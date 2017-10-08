@@ -61,7 +61,7 @@ class PodcastRepository < Hanami::Repository
         end
       end
     rescue Feedjira::FetchFailure, Faraday::Error, Zlib::DataError
-      raise
+      puts "Error fetching and parsing url #{podcast.url}"
     end
 
     feed
