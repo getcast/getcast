@@ -25,11 +25,8 @@ module Web::Controllers::Podcasts
     def start_val
       id = @podcast.id
       url = @podcast.url
-      begin
-        feed = @repository.get_feed(id)
-      rescue Feedjira::FetchFailure, Faraday::Error, Zlib::DataError
-        puts "Error fetching and parsing url #{url}"
-      else
+      feed = @repository.get_feed(id)
+      if feed
         @podcast = @repository.find(id)
         @episodes = feed.entries.each
         @image_url = feed.image ? feed.image.url : ""
