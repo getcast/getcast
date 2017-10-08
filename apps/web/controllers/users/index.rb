@@ -3,6 +3,10 @@ module Web::Controllers::Users
     include Web::Action
 
     def call(params)
-    end
+	if(!session[:user])
+		redirect_to '/'
+	end
+	 
+   end
   end
 end

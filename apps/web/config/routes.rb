@@ -9,7 +9,7 @@ post '/session/new', to: 'session#new', as: :sessionNew
 get '/users/singup', to: 'users#singup'
 resources :users, only: [:create]
 post '/user', to: 'users#create', as: :createUser
-get '/user/dashboard', to: 'user#index', as: :dashboard
+get '/user/dashboard', to: 'users#index', as: :dashboard
 get '/auth/failure', to: 'session#failure'
 get '/auth/singout', to: 'session#destroy'
 get '/user/:provider', to: 'session#new'

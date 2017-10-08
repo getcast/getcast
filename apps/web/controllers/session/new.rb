@@ -11,7 +11,7 @@ module Web::Controllers::Session
 		puts @userTry.id
 		puts data
 		session[:user] =  @userTry
-	 	redirect_to "/user" 
+	 	redirect_to "/user/dashboard" 
 	  else
 		redirect_to "/" 
 	  end
