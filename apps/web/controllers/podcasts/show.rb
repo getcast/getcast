@@ -15,12 +15,28 @@ module Web::Controllers::Podcasts
     end
     
     private 
+    def connection(url, headers, request_options)
+      Faraday.new(url: url, headers: headers, request: request_options) do |conn|
+        conn.use FaradayMiddleware::FollowRedirects, limit: Feedjira.follow_redirect_limit
+        conn.adapter Faraday.default_adapter
+      end
+    end
+
     def start_val
+      id = @podcast.id
       url = @podcast.url
       begin
         if not @podcast.cache
           xml = Feedjira::Feed.connection(url).get.body
-          @podcast = @repository.update(@podcast.id, cache: xml)
+          @podcast = @repository.update_cache(id, xml)
+        else
+          headers = {user_agent: Feedjira.user_agent, 
+            if_modified_since: @podcast.last_updated.httpdate}
+          request_options = {timeout: Feedjira.request_timeout}
+          xml = connection(url, headers, request_options).get.body
+          if not xml.empty?
+            @podcast = @repository.update_cache(id, xml)
+          end
         end
         feed = Feedjira::Feed.parse_with(Feedjira::Parser::ITunesRSS, @podcast.cache)
       rescue Feedjira::FetchFailure, Faraday::Error, Zlib::DataError

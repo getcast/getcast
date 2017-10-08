@@ -13,7 +13,7 @@
 class Mailers::ConfirmEmail
   include Hanami::Mailer
 
-  from    'arturmcuringa@gmail.com'
+  from    'getcastpodcast@gmail.com'
   to      :recipient
   subject :subject
 

@@ -13,6 +13,11 @@ class PodcastRepository < Hanami::Repository
     podcasts.count > 0
   end
 
+  def update_cache(id, xml)
+    update(id, cache: xml)
+    update(id, last_updated: DateTime.now)
+  end
+
   @@ATTRS = [:url, :title, :description].freeze
   def search(*args, **kwargs)
     if not kwargs.empty?

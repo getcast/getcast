@@ -17,7 +17,7 @@ module Web::Controllers::Users
     def call(params)
 	if params.valid?
 		@user = UserRepository.new.create(params[:user])
-		#Mailers::ConfirmEmail.deliver(user: @user)	
+	#	Mailers::ConfirmEmail.deliver(user: @user)	
 #	redirect_to 
 	else
 		self.status = 422

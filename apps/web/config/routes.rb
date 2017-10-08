@@ -2,9 +2,9 @@
 # See: http://hanamirb.org/guides/routing/overview/
 #
 # Example:
-get '/session', to: 'session#failure'
-delete '/session/:id', to: 'session#destroy'
-get '/session/new', to: 'session#new'
+get '/session', to: 'session#failure', as: :sessionfailure
+delete '/session/:id', to: 'session#destroy', as: :sessiondestroy
+get '/session/new', to: 'session#new', as: :sessionNew
 get '/users/singup', to: 'users#singup'
 resources :users, only: [:create]
 post '/user', to: 'users#create', as: :createUser
