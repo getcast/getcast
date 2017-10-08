@@ -16,7 +16,9 @@ module Web::Controllers::Users
     
     def call(params)
 	if params.valid?
-		@user = UserRepository.new.create(params[:user])
+		data = params[:user].dup
+		data[:password] = Encrypter.generate(data[:password])
+		@user = UserRepository.new.create(data)
 	#	Mailers::ConfirmEmail.deliver(user: @user)	
 #	redirect_to 
 	else

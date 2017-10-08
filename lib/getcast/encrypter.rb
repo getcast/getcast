@@ -1,6 +1,5 @@
 require 'bcrypt'
-
-class Encrypter
+  class Encrypter
  
 	DEFAULT_COST = BCrypt::Engine.cost
 
@@ -15,4 +14,4 @@ class Encrypter
 	def ==(other)
 		@password == other
 	end
-end
+  end
