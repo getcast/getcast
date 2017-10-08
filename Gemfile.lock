@@ -169,6 +169,7 @@ DEPENDENCIES
   dotenv (~> 2.0)
   feedjira
   hanami (~> 1.0)
+  hanami-mailer
   hanami-model (~> 1.0)
   minitest
   pg
