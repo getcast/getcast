@@ -2,8 +2,11 @@ podcast_repository = PodcastRepository.new
 episode_repository = EpisodeRepository.new
 podcast_repository.podcasts.each do |podcast|
 	xml = Feedjira::Feed.connection(podcast.url).get.body
-	feed = Feedjira::Feed.parse_with(Feedjira::Parser::ITunesRSS, xml)
-	feed.entries.each do |episode|
-		episode_repository.create(podcast_id: podcast.id, title: episode.title, subtitle: episode.itunes_subtitle, description: episode.itunes_summary, media_url: episode.enclosure_url, duration: episode.itunes_duration, publication_date: episode.published)
+	begin
+		feed = Feedjira::Feed.parse_with(Feedjira::Parser::ITunesRSS, xml)
+		feed.entries.each do |episode|
+			episode_repository.create(podcast_id: podcast.id, title: episode.title, subtitle: episode.itunes_subtitle, description: episode.itunes_summary, media_url: episode.enclosure_url, duration: episode.itunes_duration, publication_date: episode.published)
+		end
+	rescue
 	end
 end
