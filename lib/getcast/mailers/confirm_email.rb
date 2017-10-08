@@ -1,6 +1,6 @@
 
 #Hanami::Mailer.configure do
-#  delivery_method :smtp,
+#delivery_method :smtp,
 #    address:              "smtp.gmail.com",
 #    port:                 587,
 #    domain:               "example.com",
@@ -9,7 +9,7 @@
 #    authentication:       "plain",
 #    enable_starttls_auto: true
 #end.load!
-#
+
 class Mailers::ConfirmEmail
   include Hanami::Mailer
 
