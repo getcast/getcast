@@ -13,14 +13,6 @@ module Web::Controllers::Podcasts
     	@image_url
     	start_val
     end
-    
-    private 
-    def connection(url, headers, request_options)
-      Faraday.new(url: url, headers: headers, request: request_options) do |conn|
-        conn.use FaradayMiddleware::FollowRedirects, limit: Feedjira.follow_redirect_limit
-        conn.adapter Faraday.default_adapter
-      end
-    end
 
     def start_val
       id = @podcast.id
