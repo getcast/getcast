@@ -29,7 +29,7 @@ class PodcastRepository < Hanami::Repository
     entry
   end
 
-  def connection(url, headers, request_options)
+  private def connection(url, headers, request_options)
     Faraday.new(url: url, headers: headers, request: request_options) do |conn|
       conn.use FaradayMiddleware::FollowRedirects, limit: Feedjira.follow_redirect_limit
       conn.adapter Faraday.default_adapter
