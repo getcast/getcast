@@ -8,8 +8,10 @@ module Web::Controllers::Podcasts
     def call(params)
     	@repository = PodcastRepository.new
     	@podcasts =
-    		if params[:search] then
-    			@repository.search(params[:search])
+            if params[:"search-title"] || params[:"search-desc"] then
+                @repository.search(title: params[:"search-title"], description: params[:"search-desc"], limit: 1000)
+    		elsif params[:"search-all"] then
+    			@repository.search(params[:search], limit: 1000)
     		else
     			@repository.take(1000)
     		end
