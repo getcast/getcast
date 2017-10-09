@@ -13,6 +13,7 @@ GEM
       xpath (~> 2.0)
     concurrent-ruby (1.0.5)
     crass (1.0.2)
+    daemons (1.2.4)
     dotenv (2.2.1)
     dry-configurable (0.7.0)
       concurrent-ruby (~> 1.0)
@@ -166,6 +167,7 @@ PLATFORMS
 DEPENDENCIES
   bcrypt
   capybara
+  daemons
   dotenv (~> 2.0)
   feedjira
   hanami (~> 1.0)
@@ -181,4 +183,4 @@ RUBY VERSION
    ruby 2.4.1p111
 
 BUNDLED WITH
-   1.15.4
+   1.16.0.pre.2

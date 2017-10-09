@@ -7,6 +7,7 @@ gem 'hanami-mailer'
 gem 'pg'
 
 gem 'feedjira'
+gem 'daemons'
 
 gem 'bcrypt'
 

@@ -44,7 +44,7 @@ class PodcastRepository < Hanami::Repository
     end
 
     begin
-      if !podcast.cache
+      if !podcast.cache || !podcast.last_updated
         xml = Feedjira::Feed.connection(podcast.url).get.body
         feed = Feedjira::Feed.parse_with(Feedjira::Parser::ITunesRSS, xml)
         update_cache(id, xml, feed)
