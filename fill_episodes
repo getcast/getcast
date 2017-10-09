@@ -1,6 +1,6 @@
 podcast_repository = PodcastRepository.new
 episode_repository = EpisodeRepository.new
-podcast_repository.podcasts.each do |podcast|
+podcast_repository.podcasts.where(id > 2167).each do |podcast|
 	begin
 		xml = Feedjira::Feed.connection(podcast.url).get.body
 		feed = Feedjira::Feed.parse_with(Feedjira::Parser::ITunesRSS, xml)

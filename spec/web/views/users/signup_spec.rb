@@ -1,9 +1,9 @@
 require 'spec_helper'
-require_relative '../../../../apps/web/views/users/singup'
+require_relative '../../../../apps/web/views/users/signup'
 
-describe Web::Views::Users::Singup do
+describe Web::Views::Users::Signup do
   let(:exposures) { Hash[foo: 'bar'] }
-  let(:template)  { Hanami::View::Template.new('apps/web/templates/users/singup.html.erb') }
+  let(:template)  { Hanami::View::Template.new('apps/web/templates/users/signup.html.erb') }
   let(:view)      { Web::Views::Users::Singup.new(template, exposures) }
   let(:rendered)  { view.render }
 

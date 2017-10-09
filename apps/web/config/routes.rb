@@ -6,7 +6,7 @@ get '/users', to: 'users#index'
 get '/session', to: 'session#failure', as: :sessionfailure
 delete '/session/:id', to: 'session#destroy', as: :sessiondestroy
 post '/session/new', to: 'session#new', as: :sessionNew
-get '/users/singup', to: 'users#singup'
+get '/users/signup', to: 'users#signup'
 resources :users, only: [:create]
 post '/user', to: 'users#create', as: :createUser
 get '/user/dashboard', to: 'users#index', as: :dashboard

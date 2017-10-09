@@ -1,6 +1,6 @@
 require 'hanami/mailer'
 
-Hanami::Maler.configure do
+Hanami::Mailer.configure do
   # Set the root path where to search for templates
   # Argument: String, Pathname, #to_pathname, defaults to the current directory
   #

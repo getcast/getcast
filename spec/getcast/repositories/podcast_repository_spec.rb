@@ -6,9 +6,10 @@ describe PodcastRepository do
    @duck =  PodcastRepository.new.create(title: "Foo_duck_2000", url: "foo_duck_2000.com", description: "Useless bird")
   end
 
- after do
-  PodcastRepository.new.delete(@duck.id)
- end
+  after do
+    PodcastRepository.new.delete(@duck.id)
+  end
+
  it 'search "Foo_duck_2000" in title' do 
   rep = PodcastRepository.new
   search_s = "Foo_duck_2000"
