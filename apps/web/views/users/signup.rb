@@ -1,5 +1,5 @@
 module Web::Views::Users
-  class Singup
+  class Signup
     include Web::View
   end
 end
