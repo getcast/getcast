@@ -7,6 +7,6 @@ describe Web::Controllers::Users::Index do
 
   it 'is successful' do
     response = action.call(params)
-    response[0].must_equal 200
+    response[0].must_equal 302
   end
 end
