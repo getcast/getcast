@@ -68,7 +68,7 @@ class PodcastRepository < Hanami::Repository
   end
 
   @@ATTRS = [:url, :title, :description].freeze
-  def search(*args, **kwargs)
+  def search(*args, limit: 1000, order_by: :last_updated, **kwargs)
     if not kwargs.empty?
     then  
       queries = true
@@ -77,7 +77,7 @@ class PodcastRepository < Hanami::Repository
         queries = Sequel.&(queries, Sequel[attribute].like("%#{value}%", case_insensitive: true))
       end
 
-      podcasts.where(queries)
+      podcasts.where(queries).order(order_by).limit(limit)
       
     elsif not args.empty?
     then  
@@ -88,7 +88,7 @@ class PodcastRepository < Hanami::Repository
         queries = Sequel.|(queries, Sequel[attribute].like("%#{args[0]}%", case_insensitive: true))
       end
       
-      podcasts.where(queries)
+      podcasts.where(queries).order(order_by).limit(limit)
     end
   end
 end

@@ -1,8 +1,24 @@
 <form method="get">
-	<div class="box">
-		<div class="search-bar">
-			<input type="search" id="search" name="search" placeholder="Buscar..." autocomplete="on" autosave>
-			<button class="icon"><span class="fa fa-search rotate"></span></button>
+	<div id="search-box">
+		<div class="search-bar" id="search-all">
+			<input type="search" class="search" name="search-all" placeholder="Buscar..." autocomplete="on" autosave>
+			<button type="button" class="toggle-dropdown" data-target="search-advanced"><span class="fa fa-angle-down"></span></button>
+			<button class="rotate"><span class="fa fa-search"></span></button>
+		</div>
+		<div id="search-advanced" class="dropdown">
+			<div class="search-bar" id="search-title">
+				<input type="search" class="search" name="search-title" placeholder="Título..." autocomplete="on" autosave >
+			</div>
+			<div class="search-bar" id="search-desc">
+				<input type="search" class="search" name="search-desc" placeholder="Descrição..." autocomplete="on" autosave>
+			</div>
+			<button id="search-advanced-button">Buscar!</button>
+		</div>
+		<div id="search-order">
+			<ul id="search-order-options">
+				<li><input type="radio" id="last-updated" name="search-order-by" value="last-updated" checked><label for="last-updated"><span class="radio"></span>Last Updated</label></li>
+				<li><input type="radio" id="most-watched" name="search-order-by" value="most-watched"><label for="most-watched"><span class="radio"></span>Most Watched</label></li>
+			</ul>
 		</div>
 	</div>
 </form>
