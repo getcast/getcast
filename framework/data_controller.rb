@@ -1,2 +1,2 @@
- class DataController
- end
+class DataController
+end

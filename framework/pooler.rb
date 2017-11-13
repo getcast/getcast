@@ -9,12 +9,16 @@ class Pooler
 
 	def pool
 		loop do
+			threads = []
 			@sources.each_pair do |source, extractor|
-				if extractor.verify(source)
-					extractor.update(source)
-					notify_all
+				if extractor.verify(source) 
+					threads << Thread.new {				
+						extractor.update(source)
+					}
 				end
 			end
+			threads.each { |t| t.join }
+			notify_all if threads
 			sleep @time
 		end
 	end
