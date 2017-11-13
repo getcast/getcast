@@ -3,11 +3,15 @@ class DataRepository
 		raise "not implemented"
 	end
 
-	def find(id)
+	def find(data)
 		raise "not implemented"
 	end
 
-	def update(id, data)
+	def update(data)
+		raise "not implemented"
+	end
+
+	def batch_update(data)
 		raise "not implemented"
 	end
 

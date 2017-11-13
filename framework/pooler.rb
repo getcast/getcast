@@ -1,31 +1,30 @@
-require 'set'
-
 class Pooler
 	def initialize(sources: {}, time: 300)
-		@subscribers = Set.new
 		@sources = sources
 		@time = time
+		@subscribers = []
 	end
 
 	def pool
 		loop do
+			datas = Set.new
 			threads = []
-			@sources.each_pair do |source, extractor|
-				if extractor.verify(source) 
-					threads << Thread.new {				
-						extractor.update(source)
-					}
-				end
+			
+			@sources.each_pair do |source, updater|
+				threads << Threads.new { datas.merge(updater.update(source)) }
 			end
+			
 			threads.each { |t| t.join }
-			notify_all if threads
+			
+			notify_all(datas)
+			
 			sleep @time
 		end
 	end
 
-	def notify_all
+	def notify_all(datas)
 		@subscribers.each do |subscriber|
-			subscriber.notify
+			subscriber.notify(datas)
 		end
 	end
 
