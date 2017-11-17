@@ -2,6 +2,7 @@
 # See: http://hanamirb.org/guides/routing/overview/
 #
 # Example:
+get '/users', to: 'users#subsajax'
 get '/users', to: 'users#index'
 get '/session', to: 'session#failure', as: :sessionfailure
 delete '/session/:id', to: 'session#destroy', as: :sessiondestroy

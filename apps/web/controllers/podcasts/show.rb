@@ -7,10 +7,11 @@ module Web::Controllers::Podcasts
     expose :image_url
     expose :error
     def call(params)
-      @repository = PodcastRepository.new
+        @repository = PodcastRepository.new
     	@podcast = PodcastRepository.new.find(params[:id])
     	@episodes
     	@image_url
+	@subscriber = FALSE
     	start_val
     end
 
@@ -22,7 +23,10 @@ module Web::Controllers::Podcasts
         @podcast = @repository.find(id)
         @episodes = feed.entries.each
         @image_url = feed.image ? feed.image.url : ""
-      end        
+      end
+ #     if session[:user]
+#	@subscriber = PodcastRepository.new.find([session[:user][:id],id])
+#      end
     end
   end
 end
