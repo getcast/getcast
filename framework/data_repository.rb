@@ -3,7 +3,7 @@ class DataRepository
 		raise "not implemented"
 	end
 
-	def find(data)
+	def search(data)
 		raise "not implemented"
 	end
 
