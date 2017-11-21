@@ -17,6 +17,7 @@ get '/user/:provider', to: 'session#new'
 get '/', to: 'home#index', as: :home
 get '/podcasts', to: 'podcasts#index', as: :podcasts
 get '/podcasts/:id', to: 'podcasts#show', as: :show
-get '/subs/', to: 'users#subs_ajax', as: :subsajax
+get '/subs/', to: 'users#subscribe', as: :subsajax
+get '/unsubs/', to: 'users#unsubscribe', as: :unsubsajax
 #get '/podcasts/show/:id', to: 'podcasts#show', as: :show
 #get 'podcasts/show/', to: 'show#index'

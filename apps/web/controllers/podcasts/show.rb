@@ -6,6 +6,7 @@ module Web::Controllers::Podcasts
     expose :episodes
     expose :image_url
     expose :error
+    expose :subscriber
     def call(params)
         @repository = PodcastRepository.new
     	@podcast = PodcastRepository.new.find(params[:id])
@@ -24,9 +25,12 @@ module Web::Controllers::Podcasts
         @episodes = feed.entries.each
         @image_url = feed.image ? feed.image.url : ""
       end
- #     if session[:user]
-#	@subscriber = PodcastRepository.new.find([session[:user][:id],id])
-#      end
+      if session[:user]
+	      relation = SubsRepository.new.find_subs(session[:user].id,id)
+	      if relation
+		@subscriber = TRUE
+	      end
+      end
     end
   end
 end

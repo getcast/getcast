@@ -1,5 +1,5 @@
 module Web::Controllers::Users
-  class SubsAjax
+  class Subscribe 
     include Web::Action
 
 
