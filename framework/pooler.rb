@@ -1,30 +1,48 @@
 class Pooler
-	def initialize(sources: {}, time: 300)
-		@sources = sources
+	def initialize(sources: {}, repositories: {}, time: 300)
+		@updaters = updaters
+		@repositories = repositories
 		@time = time
 		@subscribers = []
 	end
 
 	def pool
 		loop do
-			datas = Set.new
+			updated = {}
+
 			threads = []
+			@updaters.each_pair do |source, updater|
+				threads << Threads.new { updated[source] = updater.verify(source) }
+			end
 			
-			@sources.each_pair do |source, updater|
-				threads << Threads.new { datas.merge(updater.update(source)) }
+			threads.each { |t| t.join }
+
+			data = Set.new
+
+			threads = []
+			@updaters.each_pair do |source, updater|
+				threads << Threads.new { 
+					if updated[source]
+						new_data = updater.update(source)
+						repositories[source].batch_update(new_data)
+						data.merge(new_data)) 
+					end
+					}		
 			end
 			
 			threads.each { |t| t.join }
 			
-			notify_all(datas)
+			if updated.has_value?(true)
+				notify_all(data)
+			end
 			
 			sleep @time
 		end
 	end
 
-	def notify_all(datas)
+	def notify_all(data)
 		@subscribers.each do |subscriber|
-			subscriber.notify(datas)
+			subscriber.notify(data)
 		end
 	end
 
