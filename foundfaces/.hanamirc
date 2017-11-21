@@ -1,0 +1,3 @@
+project=foundfaces
+test=minitest
+template=erb
