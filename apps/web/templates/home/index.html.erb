@@ -1,0 +1,8 @@
+<%= form_for :userSession, routes.sessionNew_path do
+	label 'Email', style: "color:white"
+	text_field :email
+	label 'Password', style: "color:white"
+	password_field :password
+	submit 'Submit'
+	end
+%>

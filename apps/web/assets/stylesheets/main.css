@@ -1,0 +1,239 @@
+*, *::before, *::after {
+	box-sizing: border-box;
+}
+
+body {
+	background-color: #181824;
+	overflow-x: hidden;
+}
+
+#main-container {
+	max-width: 75vw;
+	margin: 4rem auto;
+}
+
+.big-title {
+	font-size: 30px;
+	text-align: center;
+	margin-bottom: 2rem;
+	color: #d0d0e8;
+}
+
+#podcasts {
+	column-count: 3;
+	column-fill: balance;
+	column-gap: 1rem;
+}
+
+.podcast {
+	break-inside: avoid-column;
+	margin-bottom: 1rem;
+
+	padding-left: 2rem;
+	padding-right: 2rem;
+	padding-top: 0.5rem;
+	padding-bottom: 0.5rem;
+
+	background-color: #303040;
+}
+
+.podcast h2, #podcast h2 {	
+	white-space: pre-wrap;
+	word-wrap: break-word;
+
+	color: #9090aa;
+}
+
+.podcast p, #podcast p {	
+	white-space: pre-wrap;
+	word-wrap: break-word;
+
+	color: #787894;
+}
+
+.podcast a, #podcast a {	
+	white-space: pre-wrap;
+	word-wrap: break-word;
+
+	color: #dcac55;
+	text-decoration: none;
+}
+
+#search-box {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: 3rem auto;
+}
+
+.search-bar {
+	display: flex;
+	flex-direction: row;
+	align-items: stretch;
+	border: none;
+	background: #20202f;
+}
+
+.search-bar input.search {
+	flex-grow: 1;
+	background: rgba(0,0,0,0.0);
+	color: #fff;
+	border: none;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+.search-bar input.search::-webkit-input-placeholder {
+	color: rgb(128,128,160);
+}
+ 
+.search-bar input.search:-moz-placeholder { /* Firefox 18- */
+	color: rgb(128,128,160);  
+}
+ 
+.search-bar input.search::-moz-placeholder {  /* Firefox 19+ */
+	color: rgb(128,128,160);  
+}
+ 
+.search-bar input.search:-ms-input-placeholder {  
+	color: rgb(128,128,160);  
+}
+
+#search-all {
+	width: 400px;
+	height: 50px;
+
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+#search-all button {
+	flex-grow: 0;
+	background: rgba(0,0,0,0.0);
+	color: rgb(96,96,127);
+	border: none;
+
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+.rotate {
+	-webkit-transition: transform .55s ease-in-out;
+	-moz-transition: transform .55s ease-in-out;
+	-ms-transition: transform .55s ease-in-out;
+	-o-transition: transform .55s ease-in-out;
+	transition: transform .55s ease-in-out;
+	transform: rotate(360deg);
+	transform-style: flat;
+}
+
+#search-advanced {
+	width: 300px;
+	padding: 15px;
+	
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-around;
+
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
+
+#search-title, #search-desc {
+	font-size: 0.9rem;
+	width: 250px;
+	height: 40px;
+	margin-top: 0.25rem;
+	margin-bottom: 0.25rem;
+
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
+
+#search-advanced-button {
+	height: 40px;
+	width: 80px;
+
+	margin-top: 0.75rem;
+	margin-bottom: 0.25rem;
+	padding: 0.25rem;
+
+	font-size: 0.9rem;
+
+	border: none;
+	background: rgb(48,48,96); 
+	color: rgb(112,112,160);
+
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
+
+.dropdown {
+	visibility: hidden;
+	overflow: hidden;
+	opacity: 0;
+	z-index: -1;
+	height: 0;
+	transition: opacity 0.3s ease-in-out, visibility 0s linear 0.3s, z-index 0s linear 0.01s, height 0s ease-in-out 0.3s;
+}
+
+.dropdown.show {
+	visibility: visible;
+	opacity: 1;
+	z-index: 1;
+	height: initial;
+	transition-delay: 0.1s, 0s, 0s, 0s;
+}
+
+#search-order-options {
+	list-style-type: none;
+	margin: 1rem;
+	padding: 0;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+}
+
+#search-order-options li {
+	color: #fff;
+	margin-left: 0.5rem;
+	margin-right: 0.5rem;
+}
+
+#search-order-options label {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-around;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+input[type="radio"] + label span {
+    display: inline-block;
+    width: 19px;
+    height: 19px;
+    margin: 0.5rem;
+    box-shadow: inset 0px 0px 2px 0px rgba(255,255,255,0.1);
+    background-color: rgba(0,0,0,0.1);
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 4px;
+}
+
+input[type="radio"]:checked + label {
+	color: rgb(160,160,196);
+}
+
+input[type="radio"]:checked + label span {
+	box-shadow: none;
+	background: rgb(48,48,96);
+}
+

@@ -1,0 +1,2 @@
+module Getcast
+end

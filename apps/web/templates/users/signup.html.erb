@@ -1,0 +1,18 @@
+<h2>Sign Up</h2>
+
+<%=
+
+	form_for :user, routes.createUser_path do
+		label 'First Name'
+		text_field :first_name
+		label 'Last Name'
+		text_field :last_name
+		label 'email'
+		email_field :email
+		label 'Password'
+		password_field :password
+		label 'Acept Terms of Service'
+		check_box :terms_of_service
+		submit 'Create'
+	end	
+%>
