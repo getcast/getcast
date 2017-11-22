@@ -3,3 +3,4 @@
 #
 # Example:
 # get '/hello', to: ->(env) { [200, {}, ['Hello from Hanami!']] }
+get '/mosaic/:id', to: 'mosaic#show'
