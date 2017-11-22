@@ -5,7 +5,7 @@ module Web::Controllers::Mosaic
     expose :photos
 
     def call(params)
-	@photos = PhotosRepository.new
+	@photos = PhotosRepository.new.all(500)
 
     end
   end

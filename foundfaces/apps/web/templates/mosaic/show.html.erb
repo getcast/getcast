@@ -1,1 +1,5 @@
-
+<%if photos %>
+	<%photos.url.each do |url| %>
+	<a><%= url %></a>
+	<%end %>
+<%end %>

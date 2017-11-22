@@ -10,5 +10,8 @@ class PhotosRepository < Hanami::Repository
 		end	
 	end
 
+	def all(limit)
+		photos.limit(limit)
+	end	
 
 end
