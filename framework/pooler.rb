@@ -1,5 +1,5 @@
 class Pooler
-	def initialize(sources: {}, repositories: {}, time: 300)
+	def initialize(sources: {}, repositories: {}, updaters: {},time: 300)
 		@updaters = updaters
 		@repositories = repositories
 		@time = time
@@ -28,7 +28,7 @@ class Pooler
 					if updated[source]
 						new_data = updater.update(source)
 						repositories[source].batch_update(new_data)
-						data.merge(new_data)) 
+						data.merge(new_data) 
 					end
 					}		
 			end
