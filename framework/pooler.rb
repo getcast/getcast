@@ -12,10 +12,7 @@ class Pooler
 
 			threads = []
 			@updaters.each_pair do |source, updater|
-				threads << Threads.new { 
-					updated[source] = updater.verify(source, 
-						repositories[source].last_updated) 
-				}
+				threads << Threads.new { updated[source] = updater.verify(source) }
 			end
 			
 			threads.each { |t| t.join }
