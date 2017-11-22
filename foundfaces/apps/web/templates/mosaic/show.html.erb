@@ -1,7 +1,7 @@
 <section id="photos">
 	<%if photos %>
 		<% photos.each do |photo| %>
-			<a href="<%= photo.url %>"><%= photo.url %></a>
+			<img src="<%= photo.url %>" alt="<%= photo.uploaded_at %>">
 		<% end %>
 	<%end %>
 </section>

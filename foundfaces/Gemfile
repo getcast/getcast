@@ -6,6 +6,8 @@ gem 'hanami-model', '~> 1.1'
 
 gem 'pg'
 
+gem 'flickr_fu'
+
 group :development do
   # Code reloading
   # See: http://hanamirb.org/guides/projects/code-reloading
