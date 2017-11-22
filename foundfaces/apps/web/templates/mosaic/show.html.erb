@@ -1,5 +1,7 @@
-<%if photos %>
-	<% photos.each do |photo| %>
-		<a href="<%= photo.url %>"><%= photo.url %></a>
-	<% end %>
-<%end %>
+<section id="photos">
+	<%if photos %>
+		<% photos.each do |photo| %>
+			<a href="<%= photo.url %>"><%= photo.url %></a>
+		<% end %>
+	<%end %>
+</section>
