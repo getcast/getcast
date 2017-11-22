@@ -1,1 +1,86 @@
-#photos{line-height:0;-webkit-column-count:5;-webkit-column-gap:0;-moz-column-count:5;-moz-column-gap:0;column-count:5;column-gap:0}#photos img{width:100%!important;height:auto!important}@media (max-width:1200px){#photos{-moz-column-count:4;-webkit-column-count:4;column-count:4}}@media (max-width:1000px){#photos{-moz-column-count:3;-webkit-column-count:3;column-count:3}}@media (max-width:800px){#photos{-moz-column-count:2;-webkit-column-count:2;column-count:2}}@media (max-width:400px){#photos{-moz-column-count:1;-webkit-column-count:1;column-count:1}}
+#img_container {
+    position:relative;
+    display:inline-block;
+    text-align:center;
+}
+
+a.download-button{
+	 appearance:button; /* For Good Browsers */
+	 -moz-appearance:button; /* For Firefox */
+	 -webkit-appearance:button; /* For Safari and Chrome */
+    position:absolute;
+    color: #000;
+    text-decoration: none;
+    padding-top: 15px;
+    bottom:10px;
+    right:50px;
+    width:80px;
+    height:5px;
+}
+
+.delete-button {
+    margin:auto;
+    text-align:center;
+    position:absolute;
+    bottom:10px;
+    right:10px;
+    width:30px;
+    height:30px;
+}
+
+.download-button{
+    margin:auto;
+    text-align:center;
+    position:absolute;
+    bottom:10px;
+    right:80px;
+    width:30px;
+    height:30px;
+}
+
+#photos {
+  /* Prevent vertical gaps */
+  line-height: 0;
+   
+  -webkit-column-count: 5;
+  -webkit-column-gap:   0px;
+  -moz-column-count:    5;
+  -moz-column-gap:      0px;
+  column-count:         5;
+  column-gap:           0px;  
+}
+
+#photos img {
+  /* Just in case there are inline attributes */
+  width: 100% !important;
+  height: auto !important;
+}
+
+@media (max-width: 1200px) {
+  #photos {
+  -moz-column-count:    4;
+  -webkit-column-count: 4;
+  column-count:         4;
+  }
+}
+@media (max-width: 1000px) {
+  #photos {
+  -moz-column-count:    3;
+  -webkit-column-count: 3;
+  column-count:         3;
+  }
+}
+@media (max-width: 800px) {
+  #photos {
+  -moz-column-count:    2;
+  -webkit-column-count: 2;
+  column-count:         2;
+  }
+}
+@media (max-width: 400px) {
+  #photos {
+  -moz-column-count:    1;
+  -webkit-column-count: 1;
+  column-count:         1;
+  }
+}

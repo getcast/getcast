@@ -25,7 +25,7 @@ module Web::Controllers::Mosaic
     #    pooler.pool
 
         repository = PhotosRepository.new
-        @photos = repository.take(100)
+        @photos = repository.take(200)
     end
   end
 end

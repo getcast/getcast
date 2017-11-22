@@ -1,7 +1,13 @@
 <section id="photos">
 	<% if photos %>
 		<% photos.each do |photo| %>
-			<img src="<%= photo.url %>" alt="<%= photo.uploaded_at %>">
+			<div id="img_container">
+				<img src="<%= photo.url %>" alt="<%= photo.uploaded_at %>">
+				<a class="download-button" href="<%= photo.url %>" download="<%= photo.url %>">Download</a>
+				<form action="<%= Web.routes.path(:delete_photo, id: photo.id) %>">
+    				<button class="delete-button" type="submit" value="X">X</button>
+				</form>
+			</div>
 		<% end %>
 	<% end %>
 </section>
