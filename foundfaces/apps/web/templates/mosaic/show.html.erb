@@ -1,5 +1,5 @@
-<%if photos %>
-	<%photos.url.each do |url| %>
-	<a><%= url %></a>
-	<%end %>
-<%end %>
+images
+<% photos.each do |photo| %>
+		<img src="<%= photo.url %>" alt="<%= photo.uploaded_at %>">
+<% end %>
+

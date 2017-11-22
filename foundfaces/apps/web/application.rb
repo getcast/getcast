@@ -246,7 +246,7 @@ module Web
         default-src 'none';
         script-src 'self';
         connect-src 'self';
-        img-src 'self' https: data:;
+        img-src 'self' https: http:  data:;
         style-src 'self' 'unsafe-inline' https:;
         font-src 'self';
         object-src 'none';
@@ -327,7 +327,8 @@ module Web
         # See: http://hanamirb.org/guides/assets/content-delivery-network/#subresource-integrity
         subresource_integrity :sha256
       end
-
+      
+      print("ALA QUE TA")
       rep = {}
       r = PhotosRepository.new
       rep["found faces"] = r
