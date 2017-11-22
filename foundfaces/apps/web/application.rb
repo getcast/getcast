@@ -326,22 +326,18 @@ module Web
         #
         # See: http://hanamirb.org/guides/assets/content-delivery-network/#subresource-integrity
         subresource_integrity :sha256
+      end
 
-      src = {}
-      src[:tag] = "found faces"
-      
       rep = {}
       r = PhotosRepository.new
-      rep.add(r)
+      rep["found faces"] = r
       
       up = {}
       u = Updater.new
-      up.add(u)
+      up["found faces"] = u
       
-      pooler = Pooler(source: src, repositories: rep, updaters: up)
+      pooler = Pooler(repositories: rep, updaters: up)
       pooler.pool
-
-      end
     end
   end
 end

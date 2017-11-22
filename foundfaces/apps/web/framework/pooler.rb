@@ -1,5 +1,5 @@
 class Pooler
-	def initialize(sources: {}, repositories: {}, updaters: {},time: 300)
+	def initialize(updaters: {}, repositories: {}, time: 300)
 		@updaters = updaters
 		@repositories = repositories
 		@time = time
