@@ -1,4 +1,4 @@
-class DataRepository
+class Repository
 	def create(data)
 		raise "not implemented"
 	end
