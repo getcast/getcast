@@ -1,6 +1,6 @@
 class Application
-	def self.config
-		yield
+	def self.config &blk
+		self.instance_eval &blk
 	end
 
 	def self.sources *srcs

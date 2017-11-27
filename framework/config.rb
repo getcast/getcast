@@ -1,10 +1,7 @@
 Application.config do
-	sources
-		"face"
+	sources # Sources list
 
-	extractor
-		FlickrExtractor
+	extractor # Extractor
 
-	repository
-		PhotoRepository
+	repository # Repository
 end
