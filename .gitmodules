@@ -1,0 +1,3 @@
+[submodule "mediagator"]
+	path = mediagator
+	url = https://github.com/getcast/mediagator
