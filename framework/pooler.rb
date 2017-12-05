@@ -1,30 +1,36 @@
 class Pooler
-	def initialize(sources, extractor, repository, time: 300)
+	def initialize(sources, extractor, repository, subscribers, time: 300)
 		@sources = sources
 		@extractor = extractor
 		@repository = repository
+		@subscribers = subscribers
 		@time = time
 	end
 
 	def pool
-		loop do
-			threads = []
-			@sources.each do |source|
-				t = Thread.new do
+		threads = []
+		@sources.each do |source|
+			t = Thread.new do
+				loop do
 					if @extractor.verify(source)
-						new_data = @extractor.extract(source)
+						new_data = extractor.extract(source)
 						@repository.batch_update(new_data)
+
+						@subscribers.each do |subscribe|
+							subscriber.notify(source, new_data)
+						end
 					end
+
+					sleep @time
 				end
-				t.run
-				threads << t
 			end
 
-			threads.each do |t|
-				t.join
-			end
-
-			sleep @time
+			t.run
+			threads << t
+		end
+		
+		threads.each do |t|
+			t.join
 		end
 	end
 end

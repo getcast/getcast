@@ -8,6 +8,7 @@ Application.config do
 	pool do # you can add more poolers
 		sources "another"
 		extractor ExtractorClassC
-		repository RepositoryClassD              
+		repository RepositoryClassD
+		subscribers SubscriberClassE     # optional         
 	end
 end

@@ -11,19 +11,29 @@ class Application
 end
 
 class PoolerBuilder
+	def initialize
+		@subscribers = []
+	end
+
 	def sources *srcs
 		@sources = srcs
 	end
 
 	def extractor extractor_cls
-		@extractor_cls = extractor_cls
+		@extractor = extractor_cls.new
 	end
 
 	def repository repository_cls
-		@repository_cls = repository_cls
+		@repository = repository_cls.new
+	end
+
+	def subscribers *subscriber_clss
+		subscriber_clss.each do |cls|
+			@subscribers << cls.new
+		end  
 	end
 
 	def build
-		Pooler.new(@sources, @extractor_cls, @repository_cls)
+		Pooler.new(@sources, @extractor, @repository, @subscribers)
 	end
 end
