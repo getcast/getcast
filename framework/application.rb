@@ -1,22 +1,16 @@
 class Application
-	def self.config &blk
-		self.instance_eval &blk
-	end
-
-	def self.sources *srcs
-		@@sources = srcs
-	end
-
-	def self.extractor extractor_cls
-		@@extractor_cls = extractor_cls
-	end
-
-	def self.repository repository_cls
-		@@repository_cls = repository_cls
-	end
+	@@poolers = []
 
 	def self.run
-		pooler = Pooler.new(@@extractor_cls.new, @@repository_cls.new)
-		pooler.pool(@@sources)
+		threads = []
+		@@poolers.each do |pooler|
+			t = Thread.new { pooler.pool }
+			t.run
+			threads << t
+		end
+
+		threads.each do |t|
+			t.join
+		end
 	end
 end
