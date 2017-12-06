@@ -16,7 +16,7 @@ class PoolerBuilder
 		@wait_time = 300
 	end
 
-	def sources *srcs
+	def sources srcs
 		@sources = srcs
 	end
 
@@ -28,7 +28,7 @@ class PoolerBuilder
 		@repository = repository_cls.new
 	end
 
-	def subscribers *subscriber_clss
+	def subscribers subscriber_clss
 		subscriber_clss.each do |cls|
 			@subscribers << cls.new
 		end  
