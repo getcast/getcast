@@ -18,6 +18,7 @@ def connection(url, headers, request_options)
 end
 
 podcasts = Database[:podcasts]
+episodes = Database[:episodes]
 
 File.open("new_data.txt") do |file|
 	file.each_line do |line|
@@ -29,6 +30,10 @@ File.open("new_data.txt") do |file|
       xml = connection(line, headers, request_options).get.body
       feed = Feedjira::Feed.parse_with(Feedjira::Parser::ITunesRSS, xml)
       podcasts.insert(title: feed.title, desc: feed.description, feed_url: feed.feed_url || line, image_url: feed.image ? feed.image.url : nil)
+      podcast_episodes = feed.entries
+      podcast_episodes.each do |episode|
+        episodes.insert(title: episode.title, desc: episode.description, media_url: episode.enclosure_url, pub_date: episode.published)
+      end
       puts "OK"
     rescue Feedjira::FetchFailure, Faraday::Error, Zlib::DataError
       puts "failed"
