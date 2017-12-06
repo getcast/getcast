@@ -17,7 +17,7 @@ class Pooler
 						@repository.batch_update(new_data)
 
 						@subscribers.each do |subscribe|
-							subscriber.notify(source, new_data)
+							subscribe.notify(source, new_data)
 						end
 					end
 				end

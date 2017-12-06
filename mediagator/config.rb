@@ -3,7 +3,7 @@ Database.config \
 	user: 'getcast', \
 	password: 'marvelouspandaband', \
 	host: 'localhost', \
-	database: 'getcast_test' \
+	database: 'getcast_development' \
 do
 	create_table?(:podcasts) do
 		primary_key :id
@@ -30,6 +30,7 @@ do
 		String :username, null: false
 		String :email, null: false
 		DateTime :last_login, null: true
+		DateTime :registration_date, null: false, default: Sequel::CURRENT_TIMESTAMP
 	end
 
 	create_join_table?({user_id: :users, podcast_id: :podcasts}, name: :subscriptions)

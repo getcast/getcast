@@ -1,13 +1,11 @@
+<% if podcast.image_url %>
+<section id="podcast" style="background-image: url(<%= podcast.image_url %>);">
+<% else %>
 <section id="podcast" style="background-color: <%= random_color %>;">
-	<% if podcast.image_url or podcast.title %>
+<% end %>
+	<% if podcast.title %>
 		<header id="podcast-header">
-			<% if podcast.image_url %>
-				<img src="<%= podcast.image_url %>" alt="[podcast image]">
-			<% end %>
-
-			<% if podcast.title %>
-				<h2><%= podcast.title %></h2>
-			<% end %>
+			<h2><%= podcast.title %></h2>
 		</header>
 	<% end %>
 

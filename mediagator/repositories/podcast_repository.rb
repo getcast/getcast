@@ -3,7 +3,7 @@ class PodcastRepository
 		@podcasts = Database[:podcasts]
 	end
 
-	def each
-		@podcasts.each
+	def each &blk
+		@podcasts.each &blk
 	end
 end

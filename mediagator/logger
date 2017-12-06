@@ -1,0 +1,71 @@
+/home/jp/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/sequel-5.3.0/lib/sequel/connection_pool/threaded.rb:247:in `raise_pool_timeout': timeout: 5.0, elapsed: 5.000218604 (Sequel::PoolTimeout)
+	from /home/jp/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/sequel-5.3.0/lib/sequel/connection_pool/threaded.rb:149:in `acquire'
+	from /home/jp/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/sequel-5.3.0/lib/sequel/connection_pool/threaded.rb:90:in `hold'
+	from /home/jp/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/sequel-5.3.0/lib/sequel/database/connecting.rb:264:in `synchronize'
+	from /home/jp/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/sequel-5.3.0/lib/sequel/adapters/postgres.rb:724:in `literal_string_append'
+	from /home/jp/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/sequel-5.3.0/lib/sequel/dataset/sql.rb:82:in `literal_append'
+	from /home/jp/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/sequel-5.3.0/lib/sequel/dataset/sql.rb:953:in `block in expression_list_append'
+	from /home/jp/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/sequel-5.3.0/lib/sequel/dataset/sql.rb:951:in `each'
+	from /home/jp/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/sequel-5.3.0/lib/sequel/dataset/sql.rb:951:in `expression_list_append'
+	from /home/jp/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/sequel-5.3.0/lib/sequel/dataset/sql.rb:281:in `array_sql_append'
+	from /home/jp/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/sequel-5.3.0/lib/sequel/dataset/sql.rb:1117:in `literal_array_append'
+	from /home/jp/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/sequel-5.3.0/lib/sequel/dataset/sql.rb:101:in `literal_append'
+	from /home/jp/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/sequel-5.3.0/lib/sequel/dataset/sql.rb:1084:in `insert_values_sql'
+	from /home/jp/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/sequel-5.3.0/lib/sequel/dataset/sql.rb:243:in `_insert_sql'
+	from /home/jp/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/sequel-5.3.0/lib/sequel/dataset/sql.rb:56:in `insert_sql'
+	from /home/jp/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/sequel-5.3.0/lib/sequel/dataset/actions.rb:394:in `insert'
+	from /home/jp/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/sequel-5.3.0/lib/sequel/adapters/shared/postgres.rb:1334:in `insert'
+	from /home/jp/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/sequel-5.3.0/lib/sequel/adapters/shared/postgres.rb:1343:in `insert'
+	from /home/jp/Documentos/Git/getcast/mediagator/repositories/episode_repository.rb:8:in `block in batch_update'
+	from /home/jp/Documentos/Git/getcast/mediagator/repositories/episode_repository.rb:7:in `each'
+	from /home/jp/Documentos/Git/getcast/mediagator/repositories/episode_repository.rb:7:in `batch_update'
+	from /home/jp/Documentos/Git/getcast/mediagator/pooler.rb:17:in `block (3 levels) in pool'
+http://rss.acast.com/adambuxton
+https://podcasts.files.bbci.co.uk/p02pc9tn.rss
+http://www.tagesschau.de/export/podcast/tagesschau/
+http://web.ard.de/radiotatort/rss/podcast.xml
+http://www.radio.rai.it/radio2/podcast/rssradio2.jsp?id=150
+http://einschlafen-podcast.de/feed/mp3/
+http://www.rtl.fr/podcast/l-heure-du-crime.xml
+https://podcasts.files.bbci.co.uk/b006qnmr.rss
+http://wakingup.libsyn.com/rss
+http://feeds.serialpodcast.org/serialpodcast
+http://www.howstuffworks.com/podcasts/stuff-you-should-know.rss
+http://www.105.net/rssItunesPodcast.jsp?id_section=654
+http://joeroganexp.joerogan.libsynpro.com/rss
+http://wtfpod.libsyn.com/rss
+http://feeds.99percentinvisible.org/99percentinvisible
+https://podcasts.files.bbci.co.uk/b007qlvb.rss
+http://feeds.99percentinvisible.org/99percentinvisible
+http://www.radio.rai.it/radio3/podcast/rssradio3.jsp?id=274
+http://www1.swr.de/podcast/xml/swr2/wissen.xml
+http://timferriss.libsyn.com/rss
+http://canadaland.libsyn.com/rss
+http://wtfpod.libsyn.com/rss
+http://feeds.feedburner.com/TheLastPodcastOnTheLeft
+http://www.br-online.de/podcast/radiowissen/cast.xml
+http://feeds.wnyc.org/radiolab
+http://www.radio24.ilsole24ore.com/podcast/mix24-storia.xml
+http://www.howstuffworks.com/podcasts/stuff-you-should-know.rss
+http://joeroganexp.joerogan.libsynpro.com/rss
+http://www.1001podcast.com/podcast/RMCInfo/channel59/RMCInfochannel59.xml
+http://wakingup.libsyn.com/rss
+http://www.radio24.ilsole24ore.com/podcast/falcogabbiano.xml
+http://feed.thisamericanlife.org/talpodcast
+https://podcasts.files.bbci.co.uk/b00lvdrj.rss
+http://feeds.feedburner.com/dancarlin/history?format=xml
+http://feeds.serialpodcast.org/serialpodcast
+https://www.npr.org/rss/podcast.php?id=510289
+https://www.npr.org/rss/podcast.php?id=510307
+http://www.rtl.fr/podcast/laurent-gerra.xml
+http://wakingup.libsyn.com/rss
+https://podcasts.files.bbci.co.uk/b00snr0w.rss
+https://www.npr.org/rss/podcast.php?id=510307
+http://feeds.feedburner.com/nhscouchto5k
+http://www.howstuffworks.com/podcasts/stuff-you-should-know.rss
+https://www.npr.org/rss/podcast.php?id=510289
+http://lorepodcast.libsyn.com/rss
+https://www.npr.org/rss/podcast.php?id=510308
+http://joeroganexp.joerogan.libsynpro.com/rss
+http://www1.wdr.de/radio/podcasts/wdr5/zeitzeichen244.podcast
+http://feeds.feedburner.com/sternengeschichten
