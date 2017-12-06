@@ -1,0 +1,20 @@
+.playerbar{
+ overflow: hidden;
+ background-color: #FFF;
+ position: fixed;
+ top: 0;
+ width: 100%;
+ opacity: 0;
+}
+#audioplayer{ width: 100%; border: solid; position: relative}
+.hexagon {position: relative; width: 18px; height: 10.39px; background-color: #000000; margin: 5.20px 0}
+.hexagon:before, .hexagon:after {content: ""; position: absolute; width: 0; border-left: 9px solid transparent; border-right: 9px solid transparent}
+.hexagon:before {bottom: 100%; border-bottom: 5.20px solid #000000}
+.hexagon:after {top: 100%; width: 0; border-top: 5.20px solid #000000}
+#audioplayer img{ border: none; display: block; margin: 0 auto; margin-top: 10px}
+#playButton{ height:60px; width: 60px; border: none; background-size: 50% 50%; background-repeat: no-repeat; background-position: center; float:left; outline:none}
+.play{background: url('media-play-4x.png') ;}
+.pause{background: url('media-pause-4x.png') ;}
+#audioplayer img{ height: 60px; width: 60px; float:left; background: black}
+#timestamp{ position: absolute; bottom: -60px; right:0}
+#timeline{ width: 80%; height: 20px; margin-top: 20px; float: left; border-radius: 15px; background: rgba(0,0,0,.3)}

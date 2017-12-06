@@ -1,4 +1,0 @@
-project=getcast
-architecture=container
-test=minitest
-template=erb

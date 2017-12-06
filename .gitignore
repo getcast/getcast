@@ -1,4 +1,0 @@
-/public/assets*
-/tmp
-.env.production
-webserver_log

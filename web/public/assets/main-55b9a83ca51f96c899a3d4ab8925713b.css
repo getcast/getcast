@@ -1,0 +1,5 @@
+*, *::before, *::after {box-sizing: border-box}
+body {background-color: #181824}
+#main-container {width: 75vw; margin: 4rem auto}
+.podcast {margin-top: 1rem; margin-bottom: 1rem; padding-left: 2rem; padding-right: 2rem; padding-top: 0.5rem; padding-bottom: 0.5rem; background-color: #303040; color: rgba(255, 255, 255, 0.5)}
+.podcast > h1 > a {color: #dcac55; text-decoration: none}
