@@ -1,7 +1,7 @@
 require 'bundler/setup'
 require 'hanami/setup'
 require 'hanami/model'
-require_relative '../lib/getcast'
+require_relative '../lib/web'
 require_relative '../apps/web/application'
 
 Hanami.configure do
@@ -14,9 +14,9 @@ Hanami.configure do
     # Available options:
     #
     #  * SQL adapter
-    #    adapter :sql, 'sqlite://db/getcast_development.sqlite3'
-    #    adapter :sql, 'postgresql://localhost/getcast_development'
-    #    adapter :sql, 'mysql://localhost/getcast_development'
+    #    adapter :sql, 'sqlite://db/web_development.sqlite3'
+    #    adapter :sql, 'postgresql://localhost/web_development'
+    #    adapter :sql, 'mysql://localhost/web_development'
     #
     adapter :sql, ENV['DATABASE_URL']
 
@@ -28,7 +28,7 @@ Hanami.configure do
   end
 
   mailer do
-    root 'lib/getcast/mailers'
+    root 'lib/web/mailers'
 
     # See http://hanamirb.org/guides/mailers/delivery
     delivery :test

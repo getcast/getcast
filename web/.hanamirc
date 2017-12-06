@@ -1,4 +1,4 @@
-project=getcast
+project=web
 architecture=container
 test=minitest
 template=erb

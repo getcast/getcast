@@ -1,27 +1,35 @@
-<h1 class="big-title">Podcast</h1>
+<section id="podcast" style="background-color: <%= random_color %>;">
+	<% if podcast.image_url or podcast.title %>
+		<header id="podcast-header">
+			<% if podcast.image_url %>
+				<img src="<%= podcast.image_url %>" alt="[podcast image]">
+			<% end %>
 
-<% if podcast %>
-	<div id="podcast">
-			<h2><%= podcast.title %></a></h2>
-			<% if session[:user] %>
-				<% if !subscriber %>
-					<button data-SUB = "False"  data-ID ="<%=podcast.id %>" class = 'subs_button'>Subscribe</button>
-				<%else %>
-					<button data-SUB = "True"  data-ID ="<%=podcast.id %>" class = 'subs_button'>Unsubscribe</button> 
-				<% end %>
-				<%= javascript "subs_ajax", async: true %>		
-		
-			<%end %>
-			<p><a href="<%= podcast.url %>"><%= podcast.url %></a></p>
-			<p><%= podcast.description %></p>
-			<ol style="list-style: none;" reversed>
-				<% if episodes %>
-					<% episodes.each do |episode| %>
-						<li><button class="acPlayer"  data-audio="<%= episode.enclosure_url %>" data-img ="<%= image_url %>"  ><%= episode.title %></li>
+			<% if podcast.title %>
+				<h2><%= podcast.title %></h2>
+			<% end %>
+		</header>
+	<% end %>
+
+	<% if podcast.desc %>
+		<p><%= podcast.desc %></p>
+	<% end %>
+
+	<% if episodes %>
+		<div id="episodes">
+			<% episodes.each do |episode| %>
+				<div class="episode-container">
+					<% if episode.title %>
+						<h4><%= episode.title %></h3>
 					<% end %>
-				<% end %>
-			</ol>
-	</div>
-<% else %>
-	<p class="placeholder">Invalid podcast ID.</p>
-<% end %>
+					<% if episode.desc %>
+						<p><%= episode.desc %></h3>
+					<% end %>
+					<% if episode.media_url %>
+						<a href="<%= episode.media_url %>">Listen!</a>
+					<% end %>
+				</div>
+			<% end %>
+		</div>
+	<% end %>
+</section>

@@ -19,6 +19,7 @@ module Web
       # When you add new directories, remember to add them here.
       #
       load_paths << [
+        'helpers',
         'controllers',
         'views'
       ]
@@ -81,7 +82,7 @@ module Web
       #
       # See: http://www.rubydoc.info/gems/rack/Rack/Session/Cookie
       #
-      sessions :cookie, secret: ENV['WEB_SESSIONS_SECRET']
+      # sessions :cookie, secret: ENV['WEB_SESSIONS_SECRET']
 
       # Configure Rack middleware for this application
       #
@@ -208,7 +209,7 @@ module Web
       #
       # The default value allows images, scripts, AJAX, fonts and CSS from the
       # same origin, and does not allow any other resources to load (eg object,
-      # frame, media, etc).llow audio and video playback redirection group policy setting
+      # frame, media, etc).
       #
       # Inline JavaScript is NOT allowed. To enable it, please use:
       # "script-src 'unsafe-inline'".
@@ -238,16 +239,16 @@ module Web
         frame-ancestors 'self';
         base-uri 'self';
         default-src 'none';
-        script-src 'self' https://cdnjs.cloudflare.com https://use.fontawesome.com http://code.jquery.com;
+        script-src 'self' http://use.fontawesome.com;
         connect-src 'self';
-        img-src 'self' https: data: http:;
-        style-src 'self' 'unsafe-inline' https:;
-        font-src 'self' https://use.fontawesome.com/;
+        img-src 'self' https: http: data:;
+        style-src 'self' 'unsafe-inline' http: https:;
+        font-src 'self';
         object-src 'none';
         plugin-types application/pdf;
         child-src 'self';
         frame-src 'self';
-	      media-src *;
+        media-src 'self'
       }
 
       ##
@@ -270,6 +271,8 @@ module Web
       view.prepare do
         include Hanami::Helpers
         include Web::Assets::Helpers
+        include Web::Helpers::Ellision
+        include Web::Helpers::RandomColor
       end
     end
 

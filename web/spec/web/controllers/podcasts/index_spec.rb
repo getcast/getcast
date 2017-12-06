@@ -1,8 +1,8 @@
 require 'spec_helper'
-require_relative '../../../../apps/web/controllers/podcasts/index'
+require_relative '../../../../apps/web/controllers/podcasts/show'
 
-describe Web::Controllers::Podcasts::Index do
-  let(:action) { Web::Controllers::Podcasts::Index.new }
+describe Web::Controllers::Podcasts::Show do
+  let(:action) { Web::Controllers::Podcasts::Show.new }
   let(:params) { Hash[] }
 
   it 'is successful' do

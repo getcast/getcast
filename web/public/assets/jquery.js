@@ -1,1 +1,0 @@
-window.jQuery || document.write('<script src="js/vendor/jquery-1.12.4.min.js"><\/script>')

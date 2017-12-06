@@ -1,10 +1,10 @@
 require 'spec_helper'
-require_relative '../../../../apps/web/views/podcasts/index'
+require_relative '../../../../apps/web/views/podcasts/show'
 
-describe Web::Views::Podcasts::Index do
+describe Web::Views::Podcasts::Show do
   let(:exposures) { Hash[foo: 'bar'] }
-  let(:template)  { Hanami::View::Template.new('apps/web/templates/podcasts/index.html.erb') }
-  let(:view)      { Web::Views::Podcasts::Index.new(template, exposures) }
+  let(:template)  { Hanami::View::Template.new('apps/web/templates/podcasts/show.html.erb') }
+  let(:view)      { Web::Views::Podcasts::Show.new(template, exposures) }
   let(:rendered)  { view.render }
 
   it 'exposes #foo' do
